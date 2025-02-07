@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>اختبار Burn-in</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      /* اللون الابتدائي: رمادي داكن */
+      background-color: #333333;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // مصفوفة الألوان بالتتابع:
+    // رمادي داكن، رمادي، رمادي فاتح، أبيض، أحمر، أخضر، أزرق
+    const colors = ["#333333", "#808080", "#D3D3D3", "#FFFFFF", "#FF0000", "#00FF00", "#0000FF"];
+    let currentIndex = 0;
+    
+    // دالة لتغيير لون الخلفية
+    function changeColor() {
+      currentIndex = (currentIndex + 1) % colors.length;
+      document.body.style.backgroundColor = colors[currentIndex];
+    }
+    
+    // تغيير اللون فقط عند النقر بزر الماوس الأيسر
+    document.addEventListener('mousedown', function(e) {
+      if(e.button === 0) { // 0 يعني الزر الأيسر
+        changeColor();
+      }
+    });
+  </script>
+</body>
+</html>
